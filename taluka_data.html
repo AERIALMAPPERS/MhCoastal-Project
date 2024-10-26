@@ -23,6 +23,7 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+        <script src="https://unpkg.com/omnivore@0.3.4/omnivore.js"></script>
 
     <!-- Leaflet Plugins CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
@@ -35,18 +36,13 @@
         crossorigin="anonymous">
 </head>
 
-
 <body>
     <!-- live date and zoom in zoom out button -->
     <div id="zoomButtons">
         <div class="content">
             <button onclick="zoomOut()">A-</button>
-
-
-            
             <button onclick="resetZoom()">A</button>
             <button onclick="zoomIn()">A+</button>
-            |
             <span id="liveDate"></span>
         </div>
         <div id="google_translate_element"></div>
@@ -59,7 +55,6 @@
             <img src="./image/logo/satyamev-jayate.jpg" alt="">
             <h1>Maharashtra <br>Coastline</h1>
             <img src="./image/logo/coastl.png" alt="" id="coastal-logo">
-
         </div>
     </header>
 
@@ -70,16 +65,9 @@
         <a href="service.html" onclick="setActive(this)">Services</a>
         <a href="features.html" onclick="setActive(this)">Features</a>
         <a href="gallery.html" onclick="setActive(this)">Gallery</a>
-
-        <!-- Project Dropdown -->
-        <!-- <li class="dropdown"> -->
-            <a class="nav-link scrollto" href="#contact">Project</a>
-            <!-- <ul class="dropdown-content">
-                <a href="nav.html">Village List</a> -->
-                <!-- <li><a href="#details">Details</a></li>
-              <li><a href="#contact">Know More</a></li> -->
-            </ul>
-        </li>
+        <a href="project_data.html" onclick="setActive(this)">Project</a>
+        <!-- <a href="project.html" onclick="setActive(this)">Project</a>
+      <a href="data.html" onclick="setActive(this)">Data</a>-->
     </nav>
     <!-- <br> -->
 
@@ -99,18 +87,16 @@
                 <br>
                 <h2>Coastline of Maharashtra</h2>
                 <br>
-                <h3>Village-Wise-Data</h3>
+                <h3>Taluka-Wise-Data</h3>
                 <br>
                 <!-- Village list -->
                 <form id="villageSelector">
+        
                     <select id="district">
                         <option value="" disabled selected>Select District</option>
                     </select>
                     <select id="taluka">
                         <option value="" disabled selected>Select Taluka</option>
-                    </select>
-                    <select id="village">
-                        <option value="" disabled selected>Select Village</option>
                     </select>
                     <button id="ShowButton">Show
                         <img width="15" height="15" src="https://img.icons8.com/material-rounded/24/visible.png"
@@ -119,13 +105,11 @@
                     <button id="downloadButton">Download
                         <img width="15" height="15" src="https://img.icons8.com/material-rounded/24/download--v1.png"
                             alt="download--v1" />
-                    </button>
-
+                    </button> 
                 </form>
-                <div class= " i1">
+                <div class="i1">
                 <a href="./district-data.html">District-Wise-Data</a>
-
-                <a href="./taluka_data.html">Taluka-Wise-Data</a>
+                <a href="./project_data.html">Village-Wise-Data</a>
             </div>
                 <div class="container">
                     <div class="color-item">
@@ -237,6 +221,7 @@
                     <label><input type="checkbox" name="checkbox21">Buffer Zone</label>
                     <label><input type="checkbox" name="checkbox24">Ferry Location </label>
                     <label><input type="checkbox" name="checkbox30">Breakwater Structure</label>
+                    <label><input type="checkbox" name="checkbox29">DGPS Control Point</label>
                     <label><input type="checkbox" name="checkbox25">Year wise Coastline</label>
                     <label><input type="checkbox" name="checkbox14">Bund</label>
                     <label><input type="checkbox" name="checkbox15">Seawall</label>
@@ -249,13 +234,10 @@
                     <label><input type="checkbox" name="checkbox2">Ecw</label>
                     <label><input type="checkbox" name="checkbox3"> Dtm</label>
                     <label><input type="checkbox" name="checkbox4">Dsm </label>
-                    <!-- <label><input type="checkbox" name="checkbox22">DGPS Control Point</label> -->
                     <label><input type="checkbox" name="checkbox23">Pillar Location</label>
-                   
                    
                   
                     <!-- <label><input type="checkbox" name="checkbox29">Railway Lines </label> -->
-                   
                 </form>
             </div>
         </div>
@@ -269,15 +251,10 @@
 
     </main>
     <br>
-
-
-
-
-
     <!-- External Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
 
@@ -296,16 +273,11 @@
     <!-- Turf.js for geospatial analysis -->
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
 
-
     <!-- measure plugin -->
     <script src="./resources/leaflet-PolylineMeasure.js"></script>
 
     <!-- leaflet providers -->
     <script src="./resources/leaflet-providers.js"></script>
-
-
-
-
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
 
     <!-- Custom Script -->
@@ -315,8 +287,16 @@
         src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="./js/liveDate.js"></script>
     <script src="./js/zoomInOut.js"></script>
-    <script src="./js/project.js"></script>
+    <script src="./js/talukadata.js"></script>
+  
+    <!-- <script src="./js/project.js"></script> -->
+     <!-- <script src="./js/taluka.js"></script> -->
 
+    <!-- <script src="./js/updateData.js"></script> -->
+
+    <!-- <a href="./data/CHAINAGE/KML/PALGHAR/TALASARI/ZAI.kml"></a> -->
+
+    
 
     <footer>
         <div class="footer-container">
@@ -329,7 +309,6 @@
                     <li><a href="#">3D-Model Service</a></li>
                 </ul>
             </div>
-
             <div class="features">
                 <h3><a href="./features.html">Features</a></h3>
                 <ul>
@@ -340,7 +319,6 @@
                     <li>one to one Support</li>
                 </ul>
             </div>
-
             <div class="policies">
                 <h3>Peoples and Policies</h3>
                 <ul>
@@ -353,7 +331,6 @@
                     <!-- <li>GOI Web Directory</li> -->
                 </ul>
             </div>
-
             <div class="planning">
                 <h3><a href="./planning.html">Planning</a></h3>
                 <ul>
@@ -383,7 +360,7 @@
             <div class="marquee-container">
                 <div class="marquee-1">
                     <img src="./image/footer/p1.jpg" alt="">
-                    <img src="./image/footer/p2.png" alt="">
+                    <img src="./image/footer/p2.png" alt="">`
                     <img src="./image/footer/p3.webp" alt="">
                     <img src="./image/footer/p4.png" alt="">
                     <img src="./image/footer/p5.jpg" alt="">
@@ -403,15 +380,7 @@
             <img src="./image/f3cs.png" alt="">
             <img src="./image//f4cs.gif" alt="">
         </div>
-        <!-- <a href="./data/ECOLOGICALLY SENSITIVE AREA/DWG/MUMBAI SUBURBAN/BORIVALI/BORIVALI.dwg"></a> -->
-
-         <!-- <a href="./data/JETTY/DWG/PALGHAR/VASAI/ARNALA.dwg"></a>
-         <a href="./data/TIDE LINES/HIGH TIDE/KML/RAIGAD/SHRIVARDHAN/MANERI.kml"  -->
-      
-     
-
+        <!-- <a href="./data/kmz/JALANA.kml"></a> -->
     </footer>
-
 </body>
-
 </html>

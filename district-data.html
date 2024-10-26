@@ -9,12 +9,10 @@
     <!-- <link rel="stylesheet" href="./css/project.css" /> -->
     <link rel="stylesheet" href="./css/project_data.css">
     <link rel="stylesheet" href="./css/styles.css">
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css">
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -23,27 +21,20 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-
     <!-- Leaflet Plugins CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet-fullscreen/dist/leaflet.fullscreen.min.css">
     <link rel="stylesheet" href="./resources/leaflet-PolylineMeasure.css">
-
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         integrity="sha512-8uVTHlFcFksl62lMz+25ilJ6nNUQSwi1UNsVn0I2/26ihq8iUzZBOpEAT3tP6j3g4P4UjzI01I23skRcLh0esw=="
         crossorigin="anonymous">
 </head>
-
-
 <body>
     <!-- live date and zoom in zoom out button -->
     <div id="zoomButtons">
         <div class="content">
             <button onclick="zoomOut()">A-</button>
-
-
-            
             <button onclick="resetZoom()">A</button>
             <button onclick="zoomIn()">A+</button>
             |
@@ -51,7 +42,6 @@
         </div>
         <div id="google_translate_element"></div>
     </div>
-
     <!-- HEADING -->
     <header>
         <div class="header">
@@ -59,10 +49,8 @@
             <img src="./image/logo/satyamev-jayate.jpg" alt="">
             <h1>Maharashtra <br>Coastline</h1>
             <img src="./image/logo/coastl.png" alt="" id="coastal-logo">
-
         </div>
     </header>
-
     <!-- Navbar -->
     <nav>
         <a href="index.html" onclick="setActive(this)" class="active">Home</a>
@@ -99,18 +87,18 @@
                 <br>
                 <h2>Coastline of Maharashtra</h2>
                 <br>
-                <h3>Village-Wise-Data</h3>
+                <h3>District-Wise-Data</h3>
                 <br>
                 <!-- Village list -->
                 <form id="villageSelector">
                     <select id="district">
                         <option value="" disabled selected>Select District</option>
                     </select>
-                    <select id="taluka">
+                    <!-- <select id="taluka">
                         <option value="" disabled selected>Select Taluka</option>
                     </select>
                     <select id="village">
-                        <option value="" disabled selected>Select Village</option>
+                        <option value="" disabled selected>Select Village</option> -->
                     </select>
                     <button id="ShowButton">Show
                         <img width="15" height="15" src="https://img.icons8.com/material-rounded/24/visible.png"
@@ -120,12 +108,11 @@
                         <img width="15" height="15" src="https://img.icons8.com/material-rounded/24/download--v1.png"
                             alt="download--v1" />
                     </button>
-
                 </form>
                 <div class= " i1">
-                <a href="./district-data.html">District-Wise-Data</a>
-
                 <a href="./taluka_data.html">Taluka-Wise-Data</a>
+
+                <a href="./project_data.html">Village-Wise-Data</a>
             </div>
                 <div class="container">
                     <div class="color-item">
@@ -208,7 +195,6 @@
                         <div class="color-box" style="background-color: #e232cb;"></div>
                         <div class="color-text">Jetty</div>
                     </div>
-                  
                     <div class="color-item">
                         <div class="color-box" style="background-color: #f507e1;"></div>
                         <div class="color-text">Breakwater Structure</div>
@@ -217,7 +203,6 @@
                 <!-- </div> -->
             </div>
             <div id="label">
-
                 <h2>Layer</h2>
                 <form method="post" id="labelForm">
                     <!-- Checkbox labels -->
@@ -249,13 +234,9 @@
                     <label><input type="checkbox" name="checkbox2">Ecw</label>
                     <label><input type="checkbox" name="checkbox3"> Dtm</label>
                     <label><input type="checkbox" name="checkbox4">Dsm </label>
-                    <!-- <label><input type="checkbox" name="checkbox22">DGPS Control Point</label> -->
+                    <label><input type="checkbox" name="checkbox29">DGPS Control Point</label>
                     <label><input type="checkbox" name="checkbox23">Pillar Location</label>
-                   
-                   
-                  
                     <!-- <label><input type="checkbox" name="checkbox29">Railway Lines </label> -->
-                   
                 </form>
             </div>
         </div>
@@ -266,21 +247,14 @@
             <!-- <img src="./video/google earth.gif" alt="Google Earth GIF" id="earthGif"> -->
             <div id="map-container"></div>
         </div>
-
     </main>
     <br>
-
-
-
-
-
     <!-- External Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script src="https://unpkg.com/leaflet-fullscreen/dist/Leaflet.fullscreen.min.js"></script>
@@ -288,36 +262,22 @@
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
     <script src="./resources/leaflet-PolylineMeasure.js"></script>
     <script src="./resources/leaflet-providers.js"></script>
-
     <!-- Leaflet Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
     <script src="./resources/leaflet-PolylineMeasure.js"></script>
-
     <!-- Turf.js for geospatial analysis -->
     <script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>
-
-
     <!-- measure plugin -->
     <script src="./resources/leaflet-PolylineMeasure.js"></script>
-
     <!-- leaflet providers -->
     <script src="./resources/leaflet-providers.js"></script>
-
-
-
-
     <script src="https://unpkg.com/leaflet-omnivore@0.3.4/leaflet-omnivore.min.js"></script>
-
     <!-- Custom Script -->
-
     <script src="./js/translate.js"></script>
-    <script type="text/javascript"
-        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <script src="./js/liveDate.js"></script>
     <script src="./js/zoomInOut.js"></script>
-    <script src="./js/project.js"></script>
-
-
+    <script src="./js/districtdata.js"></script>
     <footer>
         <div class="footer-container">
             <div class="service1">
@@ -329,7 +289,6 @@
                     <li><a href="#">3D-Model Service</a></li>
                 </ul>
             </div>
-
             <div class="features">
                 <h3><a href="./features.html">Features</a></h3>
                 <ul>
@@ -340,7 +299,6 @@
                     <li>one to one Support</li>
                 </ul>
             </div>
-
             <div class="policies">
                 <h3>Peoples and Policies</h3>
                 <ul>
@@ -353,7 +311,6 @@
                     <!-- <li>GOI Web Directory</li> -->
                 </ul>
             </div>
-
             <div class="planning">
                 <h3><a href="./planning.html">Planning</a></h3>
                 <ul>
@@ -361,9 +318,7 @@
                     <li><a href="#">Planning</a></li>
                 </ul>
             </div>
-
             <div class="contact-details">
-
                 <h3><a href="#/contact.html">Contact Details</a></h3>
                 <ul>
                     <li>
@@ -403,15 +358,9 @@
             <img src="./image/f3cs.png" alt="">
             <img src="./image//f4cs.gif" alt="">
         </div>
-        <!-- <a href="./data/ECOLOGICALLY SENSITIVE AREA/DWG/MUMBAI SUBURBAN/BORIVALI/BORIVALI.dwg"></a> -->
-
+        <a href="./data/SAND DUNE/DWG/SINDHUDURG/VENGURLA/KURLEWADI.dwg"></a>
          <!-- <a href="./data/JETTY/DWG/PALGHAR/VASAI/ARNALA.dwg"></a>
          <a href="./data/TIDE LINES/HIGH TIDE/KML/RAIGAD/SHRIVARDHAN/MANERI.kml"  -->
-      
-     
-
     </footer>
-
 </body>
-
 </html>
